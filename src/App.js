@@ -9,21 +9,34 @@ class App extends Component {
 
   state = {
     productQuantity: 1,
-    unitPrice: 11.90
+    unitPrice: parseFloat( 11.90 ),
+    subTotal: parseFloat( 0 ),
   }
 
   addProductQuantity = () => {
-    this.setState( {
-      productQuantity: this.state.productQuantity + 1,
-      unitPrice: this.state.unitPrice
+    const headPhonePrice = 11.90
+    this.setState( prevState => {
+      return ( { ...prevState, unitPrice: this.state.unitPrice + headPhonePrice, productQuantity: this.state.productQuantity + 1 } )
     } )
   }
 
   subtractProductQuantity = () => {
-    this.setState( {
-      productQuantity: this.state.productQuantity - 1
+    const headPhonePrice = 11.90
+    this.setState( prevState => {
+      return ( { ...prevState, unitPrice: this.state.unitPrice - headPhonePrice, productQuantity: this.state.productQuantity - 1 } )
     } )
   }
+
+  handleSubTotal = () => {
+    let subTotal;
+    subTotal = this.state.unitPrice
+    this.setState( {
+      subTotal
+    } )
+  }
+
+  
+
 
 
 
@@ -51,7 +64,7 @@ class App extends Component {
                         <img className="table__container__headphones" src={ headPhones } alt="headphones" />
                       </td>
                       <td>Headphones</td>
-                      <td>$11.90</td>
+                      <td>${ this.state.unitPrice.toFixed( 2 ) } </td>
                       <td>
                         <div className="table-container__items-box">
                           <button
@@ -74,7 +87,9 @@ class App extends Component {
                       <td></td>
                       <td></td>
                       <td class="table-container__updateBtn">
-                        <button>Update Shopping Cart </button>
+                        <button
+                          onClick={ this.handleSubTotal }
+                        >Update Shopping Cart </button>
                       </td>
                     </tr>
 
@@ -86,7 +101,7 @@ class App extends Component {
               <div class="orderSummary">
                 <div class="orderSummary__shipping-box">
                   <p class="orderSummary__shipping-subtitle">shipping</p>
-                  <p class="orderSummary__shipping-price">$23.80</p>
+                  <p class="orderSummary__shipping-price">{ this.state.subTotal >= 100 ? "0.00$" : "$23.8" }</p>
                 </div>
                 <div class="orderSummary__cartTotal-subtitle-box">
                   <p class="orderSummary__cartTotal-subtitle">cart totals</p>
@@ -95,7 +110,7 @@ class App extends Component {
                   <div class="orderSummary__cartTotals-Prices-boxs">
                     <div class="orderSummary__subtotal-box">
                       <p class="orderSummary__subtotal-subtitle">Subtotal</p>
-                      <p class="orderSummary__subtotal-price">$23.80</p>
+                      <p class="orderSummary__subtotal-price">${ this.state.subTotal.toFixed( 2 ) }</p>
                     </div>
                     <div class="orderSummary__granTotal-box">
                       <p class="orderSummary__grandTotal-subtitle">Grand Total</p>
