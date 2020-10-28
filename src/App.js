@@ -4,7 +4,6 @@ import React, { Component } from 'react'
 import Thead from "./components/tableComponents/Thead"
 import HeaderShoppingCart from "./components/HeaderShoppingCart";
 import Tbody from "./components/tableComponents/Tbody";
-import orderSummary from "./components/OrderSummary";
 import OrderSummary from './components/OrderSummary';
 
 class App extends Component {

@@ -36,8 +36,6 @@ img {
   height: auto;
 }
 
-
-
 @font-face {
   font-family: 'Roboto', sans-serif;
   src: url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,100&display=swap");
@@ -108,7 +106,6 @@ main {
   margin-right: 35px;
 }
 
-
 table {
   border-collapse: collapse;
   table-layout: fixed;
@@ -127,7 +124,6 @@ td {
   border-bottom: 1.5px solid var(--borderInsideTable);
 
 }
-
 
 td {
   font-size: 14px;
@@ -148,8 +144,6 @@ td .table__container__headphones {
 td .table__container__close {
   padding-right: 40px;
 }
-
-
 
 .table-container__updateBtn {
   padding: 0px 0px;
@@ -184,6 +178,8 @@ td .table__container__close {
   border: 2px inset rgb(131, 131, 131);
 }
 
+/* Order Summary */
+
 .orderSummary {
   width: 270px;
 }
@@ -201,7 +197,6 @@ td .table__container__close {
   text-transform: uppercase;
   font-size: 13px;
 }
-
 
 .orderSummary__shipping-box,
 .orderSummary__cartTotal-subtitle-box,
@@ -248,7 +243,6 @@ td .table__container__close {
   padding: 5px 8px 10px 8px;
   border-bottom: 1px solid var(--borderCartShippingColor);
 }
-
 
 .orderSummary__granTotal-box {
   padding: 8px 8px 22px 8px;
