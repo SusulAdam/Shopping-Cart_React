@@ -20,5 +20,5 @@ npm start
 
 Projects are created with:
 
--React
--CSS
+* React
+* CSS
