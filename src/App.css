@@ -121,11 +121,11 @@ thead {
 th,
 td {
   color: var(--tableFontsColor);
-
 }
 
 .table-container__elements {
-  border-bottom: 1.5px solid var(--borderInsideTable)
+  border-bottom: 1.5px solid var(--borderInsideTable);
+
 }
 
 
@@ -148,6 +148,7 @@ td .table__container__headphones {
 td .table__container__close {
   padding-right: 40px;
 }
+
 
 
 .table-container__updateBtn {

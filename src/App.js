@@ -76,6 +76,15 @@ class App extends Component {
   combindedAlertProceedToCheckout = () => {
     this.handleProceedToCheckout()
     setTimeout( this.handleAlert, 100 );
+  }
+
+  deleteProduct = () => {
+    this.setState( {
+      productQuantity: 0,
+      unitPrice: 0,
+      subTotal: 0,
+      shipping: 0,
+    } )
 
   }
 
@@ -89,7 +98,9 @@ class App extends Component {
           <section className="shoppingCart">
             <div className="header-container">
               <h1 className="header-container__h1">Shopping Cart</h1>
-              <button className="header-container__handleCheckout">Proceed to checkout</button>
+              <button
+                disabled={ this.state.subTotal > 0 ? false : true }
+                onClick={ this.combindedAlertProceedToCheckout } className="header-container__handleCheckout">Proceed to checkout</button>
             </div>
 
             <div className="main-container">
@@ -97,10 +108,12 @@ class App extends Component {
                 <table>
                   <Thead />
 
-                  <tbody>
+                  <tbody style={ this.state.subTotal < 1 ? { display: "none" } : { "": "" } }>
                     <tr className="table-container__elements">
                       <td>
-                        <img className="table__container__close" src={ xImg } alt="close-button" />
+                        <img
+                          onClick={ this.deleteProduct }
+                          className="table__container__close" src={ xImg } alt="close-button" />
                       </td>
                       <td>
                         <img className="table__container__headphones" src={ headPhones } alt="headphones" />
@@ -161,6 +174,7 @@ class App extends Component {
                     </div>
                   </div>
                   <button
+                    disabled={ this.state.subTotal > 0 ? false : true }
                     onClick={ this.combindedAlertProceedToCheckout }
                     class="orderSummary__checkout-cart">Proceed to checkout</button>
                 </div>
