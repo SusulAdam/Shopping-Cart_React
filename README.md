@@ -1,4 +1,6 @@
-## Task number 2
+## Genral Info
+
+The main goal of project was create a full working shopping cart.
 
 
 ## Running
